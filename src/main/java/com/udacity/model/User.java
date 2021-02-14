@@ -40,7 +40,7 @@ public class User {
     @JoinColumn(name = "cart_id", referencedColumnName = "id")
 	@JsonIgnore
     private Cart cart;
-	
+
 	public Cart getCart() {
 		return cart;
 	}

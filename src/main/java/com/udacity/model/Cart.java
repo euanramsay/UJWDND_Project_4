@@ -37,7 +37,7 @@ public class Cart {
 	@Column
 	@JsonProperty
 	private BigDecimal total;
-	
+
 	public BigDecimal getTotal() {
 		return total;
 	}
