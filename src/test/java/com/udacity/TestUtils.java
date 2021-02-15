@@ -3,6 +3,7 @@ package com.udacity;
 import com.udacity.model.Cart;
 import com.udacity.model.Item;
 import com.udacity.model.User;
+import com.udacity.model.UserOrder;
 import com.udacity.request.ModifyCartRequest;
 
 import java.lang.reflect.Field;
@@ -17,7 +18,6 @@ public class TestUtils {
     private static final String PASSWORD = "testPassword";
     private static final String DESCRIPTION = "test description";
     private static final String NAME = "test name";
-
 
     public static void injectObject(Object target, String fieldName, Object toInject) {
 
@@ -49,9 +49,7 @@ public class TestUtils {
         Cart cart = new Cart();
         cart.setId(1L);
         cart.setUser(user);
-        List<Item> items = new ArrayList<>(
-                Arrays.asList(createItem(), createItem())
-        );
+        List<Item> items = createTwoItems();
         cart.setItems(items);
         user.setCart(cart);
         return user;
@@ -64,6 +62,27 @@ public class TestUtils {
         item.setName(NAME);
         item.setPrice(BigDecimal.valueOf(1.99));
         return item;
+    }
+
+    public static UserOrder userOrder() {
+        UserOrder order = new UserOrder();
+        order.setId(1L);
+        order.setUser(createUser());
+        order.setItems(createTwoItems());
+        order.setTotal(BigDecimal.valueOf(3.98));
+        return order;
+    }
+
+    public static List<Item> createTwoItems() {
+        return new ArrayList<>(
+                Arrays.asList(createItem(), createItem())
+        );
+    }
+
+    public static List<UserOrder> createTwoOrders() {
+        return new ArrayList<>(
+                Arrays.asList(userOrder(), userOrder())
+        );
     }
 
     public static ModifyCartRequest createModifyCartRequest() {
