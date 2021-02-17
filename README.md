@@ -4,7 +4,7 @@ This project is the backend of an eCommerce Application using Java and Spring Bo
 
 ### Postman
 
-There is a Postman collection in scr/main/resources which can be used for testing the controller endpoints.
+There is a Postman collection which can be used for testing the controller endpoints.
 
 #### Resources
 
